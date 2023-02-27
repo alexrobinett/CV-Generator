@@ -1,25 +1,44 @@
 import React from "react"
 import ExperienceInput from "./ExperienceInput"
 import EducationInput from "./EducationInput"
+import Skill from "./skill";
 
 export default function BodyInput(props){
 
 
 
-const experienceInputs = props.resumeInfo.experience.map(experience => 
+  const experienceInputs = props.resumeInfo.experience.map(experience => 
     <ExperienceInput 
       key={experience.id}
       id={experience.id}
-      title={experience.title}
-      company={experience.company}
-      summary={experience.summary}
-      startDate={experience.startDate}
-      endDate={experience.endDate}
-      handleInput={props.handleInput}
-    />)
+      experience={experience}
+      updateItem={props.updateItem}
+      deleteItem={props.deleteItem}
+    />
+  );
+  
 
 
-const educationInputs = props.resumeInfo.education.map(education =>  <EducationInput key={education.id} />)
+  const educationInputs = props.resumeInfo.education.map(education =>  
+  <EducationInput 
+      key={education.id} 
+      id={education.id}
+      education={education}
+      updateItem={props.updateItem}
+      deleteItem={props.deleteItem}
+  />)
+
+
+  const skillList = props.resumeInfo.skills
+  ? props.resumeInfo.skills.map(skill => (
+      <Skill
+        key={skill.id}
+        id={skill.id}
+        skill={skill.skill}
+        deleteItem={props.deleteItem}
+      />
+    ))
+  : null;
 
 
 
@@ -28,7 +47,7 @@ const educationInputs = props.resumeInfo.education.map(education =>  <EducationI
          <section className="flex justify-between m-6">
           <div className=" w-8/12">
             <input type="text" placeholder="Your Name" className="input input-lg input-bordered w-full" name="yourName" onChange={props.handleInput} value={props.resumeInfo.yourName} />
-            <textarea className="textarea textarea-bordered w-full my-4 max-h-fit" placeholder="Small Bio or summary about yourself" name="bio" onChange={props.handleInput} value={props.resumeInfo.bio}></textarea>
+            <textarea className="textarea textarea-bordered w-full my-4 h-36" placeholder="Small Bio or summary about yourself" name="bio" onChange={props.handleInput} value={props.resumeInfo.bio}></textarea>
           </div>
           <div className="links ">
             <div className="flex items-center">
@@ -108,8 +127,8 @@ const educationInputs = props.resumeInfo.education.map(education =>  <EducationI
            <h2 className="font-bold text-3xl">Skills</h2>
           </div>
           <div className="skills pt-4 flex gap-2">
-          <input type="text" placeholder="Your Name" className="input input-bordered w-full " />
-            <button className="btn">
+          <input type="text" placeholder="Your Name" className="input input-bordered w-full" onChange={props.updateSkill} value={props.skillValue}/>
+            <button className="btn" name="skills" onClick={props.createSkill}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
             <path fillRule="evenodd" d="M12 5.25a.75.75 0 01.75.75v5.25H18a.75.75 0 010 1.5h-5.25V18a.75.75 0 01-1.5 0v-5.25H6a.75.75 0 010-1.5h5.25V6a.75.75 0 01.75-.75z" clipRule="evenodd" />
             </svg>
@@ -117,9 +136,9 @@ const educationInputs = props.resumeInfo.education.map(education =>  <EducationI
           </div>
           <div>
               <ul className="flex flex-col max-h-52 flex-wrap pt-4 list-disc list-inside">
-                <li className="flex items-center text-lg font-medium">test <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 m-2 hover:fill-red-500"><path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z" clipRule="evenodd" /></svg></li>
+              {skillList}
               </ul>
-            </div>
+           </div>
         </section>
         </>
     )

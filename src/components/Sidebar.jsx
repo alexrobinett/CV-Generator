@@ -1,7 +1,9 @@
 import React from "react"
 
 
-export default function Sidebar(){
+export default function Sidebar(props){
+
+    
 
     return(
       <section className="bg-base-200 flex-shrink-0 overflow-y-hidden min-h-full w-64 flex flex-col items-center drop-shadow-2xl">
@@ -10,7 +12,7 @@ export default function Sidebar(){
             <h4 className="pt-0 text-3xl">Instructions</h4>
         </div>
         <div className=" bg-base-300 p-4 m-4 rounded">
-        <p className="text-xs text-left">Fill the inputs you deem necessary, no input is obligatory, however some do require specific formats</p>
+        <p className="text-xs text-left">Fields below require specific formats</p>
         <ul className="text-xs mt-2 list-none list-inside">
             <li className="my-1">- Phone requires a number format</li>
             <li className="my-1">- Email requires a valid email format</li>
@@ -24,9 +26,9 @@ export default function Sidebar(){
         <div className="form-control m-2 flex flex-col items-center">
             <label className="label cursor-pointer">
             <span className="label-text p-2">Resume Preview</span> 
-            <input type="checkbox" className="toggle" />
+            <input type="checkbox" className="toggle" checked={props.isPreview} onChange={props.togglePreview}/>
             </label>
-            <button class="btn btn-primary w-44 m-4">CV Template</button>
+            <button class="btn btn-primary w-44 m-4" onClick={props.toggleTemplate}>CV Template</button>
             <button class="btn btn-primary w-44">Download PDF</button>
         </div>
        
