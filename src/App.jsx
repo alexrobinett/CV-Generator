@@ -1,8 +1,8 @@
 
-import Navbar from './components/Navbar'
-import Body from './components/body'
+import Navbar from './components/UI/Navbar'
+import Body from './components/UI/body'
 import './App.css'
-import Sidebar from './components/Sidebar'
+import Sidebar from './components/UI/Sidebar'
 import React, { useState } from "react"
 
 

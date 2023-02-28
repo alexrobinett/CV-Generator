@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import BodyDisplay from "./BodyDispaly";
-import BodyInput from "./inputs/BodyInput";
+import BodyInput from "../inputs/BodyInput";
 import uuid from 'react-uuid';
 
 export default function Body(props){

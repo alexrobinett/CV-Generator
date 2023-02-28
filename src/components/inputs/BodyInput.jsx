@@ -1,7 +1,7 @@
 import React from "react"
 import ExperienceInput from "./ExperienceInput"
 import EducationInput from "./EducationInput"
-import Skill from "../skill";
+import Skill from "./skill";
 
 export default function BodyInput(props){
 

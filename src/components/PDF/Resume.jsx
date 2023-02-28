@@ -1,8 +1,10 @@
 import { createTw } from "react-pdf-tailwind"
 import { Document, Page, Text, View, Svg, Path, Font} from "@react-pdf/renderer";
+import ListItem from "./skillPDF"
 
 import ExperiencePDF from "./ExperiencePDF";
 import EducationPDF from "./EducationPDF";
+import SkillPDF from "./skillPDF";
 
 const tw = createTw({
     theme: {
@@ -33,9 +35,18 @@ const tw = createTw({
                 key={education.id} 
                 id={education.id}
                 education={education}
-            />)
+        />)
 
 
+
+    const skillList = props.resume.skills.map((skill => 
+            <SkillPDF
+    
+            key={skill.id}
+            id={skill.id}
+            text={skill.skill}
+    
+        />))
 
     return (
         
@@ -96,17 +107,9 @@ const tw = createTw({
              <Text style={tw("text-3xl mt-4 -mb-6")}>Skills</Text>
         </View>
        
-        <View>
-            {/* <ul style={tw("flex flex-col max-h-52 flex-wrap pt-4")}>
-              <li style={tw("flex items-center text-lg font-medium")}>test</li>
-              <li style={tw("flex items-center text-lg font-medium")}>test</li>
-              <li style={tw("flex items-center text-lg font-medium")}>test</li>
-              <li style={tw("flex items-center text-lg font-medium")}>test</li>
-              <li style={tw("flex items-center text-lg font-medium")}>test</li>
-              <li style={tw("flex items-center text-lg font-medium")}>test</li>
-              <li style={tw("flex items-center text-lg font-medium")}>test</li>
-            </ul> */}
-          </View>
+        <View style={tw("flex flex-wrap mt-4 max-h-44")}>
+          {skillList}
+        </View>
         </Page>
     </Document>
 
