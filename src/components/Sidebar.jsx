@@ -1,6 +1,7 @@
 import React from "react"
 
 
+
 export default function Sidebar(props){
 
     
@@ -29,7 +30,6 @@ export default function Sidebar(props){
             <input type="checkbox" className="toggle" checked={props.isPreview} onChange={props.togglePreview}/>
             </label>
             <button className="btn btn-primary w-44 m-4" onClick={props.toggleTemplate}>CV Template</button>
-            <button className="btn btn-primary w-44">Download PDF</button>
         </div>
        
       </section>

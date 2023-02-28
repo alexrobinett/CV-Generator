@@ -11,7 +11,7 @@ export default function BodyDisplay(props){
     return(
       <PDFViewer
       height={"100%"}
-      showToolbar={false}>
+      showToolbar={true}>
       <Resume resume={props.resume}/>
     </PDFViewer>
     )
