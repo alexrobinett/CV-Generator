@@ -28,8 +28,8 @@ export default function Sidebar(props){
             <span className="label-text p-2">Resume Preview</span> 
             <input type="checkbox" className="toggle" checked={props.isPreview} onChange={props.togglePreview}/>
             </label>
-            <button class="btn btn-primary w-44 m-4" onClick={props.toggleTemplate}>CV Template</button>
-            <button class="btn btn-primary w-44">Download PDF</button>
+            <button className="btn btn-primary w-44 m-4" onClick={props.toggleTemplate}>CV Template</button>
+            <button className="btn btn-primary w-44">Download PDF</button>
         </div>
        
       </section>

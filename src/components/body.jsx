@@ -213,7 +213,7 @@ export default function Body(props){
   return(
     <section className="flex-grow p-6 flex flex-col">
       
-      {props.isPreview ? <BodyDisplay/> : <BodyInput
+      {props.isPreview ? <BodyDisplay resume={resume}/> : <BodyInput
         resumeInfo={resume}
         handleInput={updateResume}
         createExperience={createExperience}
